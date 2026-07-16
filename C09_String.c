@@ -194,4 +194,12 @@ int main(){
     int str8Len = strlen(str8);
     str8[str8Len] = '\0';
     printf("Str8 : %s\n", str8);
+
+    strcpy(str8, str9); // str9의 내용을 str8에 붙여넣기
+
+    // 언제쓰니?
+    // 1. 문자열 배열 만들고, 처음에 값 안넣음??
+    char str9[999];
+    // str9 = "aksdfjhasld";
+    strcpy(str9, "asdfljkhasdljkf" );
 } // ==========================================

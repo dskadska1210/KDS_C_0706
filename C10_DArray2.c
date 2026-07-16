@@ -10,6 +10,15 @@ void E(){
 void EE(){
     printf("\n");
 }
+// 함수자리에는 여태 배운 모든 것들을 넣을 수 있음.
+void Print1_25(int x){
+    for(int i=0; i<x; i++){
+        for(int j=0; j<x; j++){
+            printf("%2d ", 1+j+i*x);
+        }   EE();
+    }   E();
+}
+
 // =================================================
 int main(){
     // 2차원 배열을 가지고 놀아보자 !
@@ -91,14 +100,81 @@ int main(){
             }
         }   EE();
     }   E();
-    // 25분. 질문?? 녹화
-    //녹화 녹화녹화녹화녹화녹화녹화녹화녹화
-    
+    // ----------------------------------------
+    // 5x5 배열 만들어서 1~25 순서대로 저장 하고
+    // 모든 요소 출력하되, 한줄 끝 각 줄 합계출력
+    // 마지막엔 Total : ?? 까지 출력되게 하세요.
+    int mat4[5][5] = {0};
+    for(int i=0; i<5; i++){
+        for(int j=0; j<5;j++){
+            mat4[i][j] = 1+j+5*i;
+        }
+    }
+    int total = 0;
+    for(int i=0; i<5; i++)
+    {
+        int sum = 0;
+        for(int j=0; j<5;j++)
+        {
+            printf("%2d ",mat4[i][j]);
+            sum += mat4[i][j];
+        } // 이게 끝나면 한줄 끝.
+        printf(": %d", sum);
+        total += sum;
+        EE();
+    }
+    printf("Total : %d\n", total);
+    E();
+    // ---------------------------------------
+    // mat5 8x8에다가 64~1 거꾸로 저장 후
+    // 모든요소를 출력하되, 두가지를 각 줄 뒤에 출력
+    // 짝수의 합 EvenSum : 
+    // 홀수의 합 OddSum : 
+    // 마지막 줄은, 짝수들의 평균, 홀수들의 평균!
+    // 8 7 6 5 4 3 2 1 EvenSum:20 OddSum:16
+    // EvenAvg:?, OddAvg:? +  평균? 개수.
+    int mat5[8][8] = {0};
+    cnt = 8*8;
+    for(int i=0;i<8;i++){
+        for(int j=0; j<8; j++){
+            mat5[i][j] = cnt--;
+        }
+    }
+    // ----------- 짝 홀 계산 + 출력
+    // 각 줄 짝홀 -> 모두 통계 필요
+    int evenTotal = 0 , evenCount=0;
+    int oddTotal  = 0 , oddCount=0 ;
+    for(int i=0; i<8; i++){
+        int even=0, odd=0;
+        for(int j=0; j<8; j++){
+            printf("%2d ", mat5[i][j]);
+            if(mat5[i][j]%2==0){
+                even += mat5[i][j];
+                evenCount++;
+            }else{
+                odd += mat5[i][j];
+                oddCount++;
+            }
+        }
+        printf("EvenSum:%d, OddSum:%d\n",even,odd);
+        evenTotal+=even;      oddTotal+=odd;
+    }
+    printf("EvenAvg : %.2lf\n", (double)evenTotal/evenCount );
+    printf("OddAvg  : %.2lf\n", (double)oddTotal/oddCount   );
+    // 33.00, 32.00
 
-    
-    
-    
 
-
+    // ㅠㅠㅠㅠ 매번마다 배열 계속 실행하는거 너무 힘들어 엉엉.....
+    // 매번 반복문 반복문 반복문....... -> 자동화 할 수 없을까??
+    // ★ 함수(Function)로 자동화 가능.
+    // E() -> ---------------\n  
+    // Print1_25(2);
+    // Print1_25(3);
+    // Print1_25(4);
+    // Print1_25(5);
+    // Print1_25(6);
+    for(int i=2; i<10; i++){
+        Print1_25(i);
+    }
 
 }// ================================================

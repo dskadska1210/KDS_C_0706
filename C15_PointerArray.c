@@ -18,6 +18,18 @@ void PrintArray(int* ary, int size){
         printf("%d ", *(ary+i));
     }   printf("\n");
 }
+// ----------------------------------------
+// 2차원배열을 잘 출력해보자
+void PrintMatrix(int** ary, int size){
+    for(int i=0; i<size; i++){
+        // 각 1차원배열을 출력
+        for(int j=0; j<10; j++){
+            int val = *(*(ary+i)+j) ; //ary[i][9]
+            printf("%3d ", val);
+        }
+        printf("\n");
+    }
+}
 // =========================================================
 int main(){
     srand(time(NULL));
@@ -73,6 +85,7 @@ int main(){
     }
     // 대성아 내일 이거 위로 함수로 올려야해
     // 포포인터변수의 힘을 보여주자구!!!!!
+    PrintMatrix(pAry, 4);
 
 
 
